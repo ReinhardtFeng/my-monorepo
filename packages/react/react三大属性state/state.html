@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>state</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <div id="root"></div>
+        <script type="text/babel">
+            class Mycompent extends React.Component {
+                state = { isHot: true };
+                changeWeather = () => {
+                    this.setState({ isHot: !this.state.isHot });
+                };
+                render() {
+                    return <div onClick={this.changeWeather}>今天天气很{this.state.isHot ? "炎热" : "凉爽"}</div>;
+                }
+            }
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(<Mycompent />);
+        </script>
+    </body>
+</html>
